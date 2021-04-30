@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <PDFEmbed :adobeKey="adobeKey" 
+      divId="pdf1" 
+      url="/e19-aces.pdf"
+      width="800px" height="800px"
+      mode="LIGHT_BOX"
+      >
+    </PDFEmbed>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PDFEmbed from "./components/PDFEmbed";
+
+const ADOBE_KEY = '14adb260cc474728855586b67b90c543';
 
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      adobeKey: ADOBE_KEY,
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    PDFEmbed,
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
